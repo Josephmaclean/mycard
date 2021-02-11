@@ -22,7 +22,7 @@ target 'mycard' do
   pod 'Hero'
   
   #pod for tesseract OCR
-  pod 'TesseractOCRiOS'
+#  pod 'TesseractOCRiOS'
   
   #country picker
   pod 'SKCountryPicker'
