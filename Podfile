@@ -21,6 +21,8 @@ target 'mycard' do
   #pod for hero animation
   pod 'Hero'
   
+  #pod for tesseract OCR
+  pod 'TesseractOCRiOS'
   
   #country picker
   pod 'SKCountryPicker'
