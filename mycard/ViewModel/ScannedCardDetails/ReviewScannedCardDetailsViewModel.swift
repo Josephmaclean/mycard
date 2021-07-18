@@ -84,7 +84,9 @@ class ReviewScannedCardDetailsViewModel {
                     )
                 }
             } else {
-                unlabelledArray.append(text)
+                if text.trimmingCharacters(in: .whitespaces) != "" {
+                    unlabelledArray.append(text)
+                }
             }
         }
         labelledContact = contact

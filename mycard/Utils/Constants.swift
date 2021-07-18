@@ -74,7 +74,7 @@ struct K {
         static let heading1 = TextStyle(
             style: .extraLarge,
             color: .black,
-            emphasis: .regular,
+            emphasis: .semibold,
             alignment: .left,
             lineSpacing: 2)
         static let heading3 = TextStyle(

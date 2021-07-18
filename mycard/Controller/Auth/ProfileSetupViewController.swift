@@ -21,6 +21,7 @@ class ProfileSetupViewController: UIViewController {
 // MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        fullNameTextField.text = CardManager.shared.currentEditableContact.name.fullName
         titleLabel.style(with: K.TextStyles.heading1)
         fullNameTextField.becomeFirstResponder()
         fullNameTextField.setTextStyle(with: K.TextStyles.bodyBlack40)

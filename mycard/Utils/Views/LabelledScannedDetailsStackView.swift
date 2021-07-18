@@ -267,6 +267,11 @@ class LabelledScannedDetailsStackView: UIStackView {
         let untagButton = generateButton(image: K.Images.untag)
         let editButton = generateButton(image: K.Images.edit)
         let changeButton = generateButton(image: K.Images.swap)
+        if #available(iOS 15.0, *) {
+            untagButton.toolTip = "Remove label"
+            editButton.toolTip = "Edit label"
+            changeButton.toolTip = "Change label"
+        }
 
         untagButton.tag = 1
         editButton.tag = 2

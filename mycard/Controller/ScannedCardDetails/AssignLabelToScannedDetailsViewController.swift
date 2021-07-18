@@ -12,6 +12,19 @@ class AssignLabelToScannedDetailsViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var detailTitleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var mobileNumberButton: UIButton!
+    @IBOutlet weak var homeNumberButton: UIButton!
+    @IBOutlet weak var workNumberButton: UIButton!
+    @IBOutlet weak var otherNumberButton: UIButton!
+    @IBOutlet weak var personalEmailButton: UIButton!
+    @IBOutlet weak var workEmailButton: UIButton!
+    @IBOutlet weak var otherEmailButton: UIButton!
+    @IBOutlet weak var emailStackView: UIStackView!
+    @IBOutlet weak var phoneStackView: UIStackView!
+    @IBOutlet weak var phoneDropDownButton: UIButton!
+    @IBOutlet weak var emailDropDownButton: UIButton!
+    var phoneStackViewLength = 0
+    var emailStackViewLength = 0
 
     // MARK: - properties
     var viewModel: ReviewScannedCardDetailsViewModel!
@@ -21,7 +34,19 @@ class AssignLabelToScannedDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        phoneStackViewLength = phoneStackView.arrangedSubviews.count
+        emailStackViewLength = emailStackView.arrangedSubviews.count
+
+        for i in 1 ... phoneStackViewLength-1 {
+            phoneStackView.arrangedSubviews[i].isHidden = true
+            phoneStackView.arrangedSubviews[i].alpha = 0
+        }
+
+        for i in 1 ... emailStackViewLength-1 {
+            emailStackView.arrangedSubviews[i].isHidden = true
+            emailStackView.arrangedSubviews[i].alpha = 0
+        }
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +74,28 @@ class AssignLabelToScannedDetailsViewController: UIViewController {
 
     }
 
+    @IBAction func phoneDropDownPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.3) {[self] in
+                if phoneDropDownButton.transform == CGAffineTransform.identity {
+                    phoneDropDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+                } else {
+                    phoneDropDownButton.transform = CGAffineTransform(rotationAngle: 0)
+                }
+                for i in 1 ..< phoneStackViewLength {
+                    let view = phoneStackView.arrangedSubviews[i]
+                    view.isHidden.toggle()
+                    if i != 0 {
+                        if view.alpha == 0 {
+                            view.alpha = 1
+                        } else {
+                            view.alpha = 0
+                        }
+                    }
+                }
+            }
+        }
+    }
     @IBAction func phoneNumberPressed(_ sender: UIButton) {
         if let detail = detailToChange {
             viewModel.changeToPhoneNumber(name: detail.name, index: detail.index, type: sender.currentTitle!)
@@ -59,6 +106,28 @@ class AssignLabelToScannedDetailsViewController: UIViewController {
         dismiss(animated: true)
     }
 
+    @IBAction func emailDropDownPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.3) {[self] in
+                if emailDropDownButton.transform == CGAffineTransform.identity {
+                    emailDropDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+                } else {
+                    emailDropDownButton.transform = CGAffineTransform(rotationAngle: 0)
+                }
+                for i in 1 ..< emailStackViewLength {
+                    let view = emailStackView.arrangedSubviews[i]
+                    view.isHidden.toggle()
+                    if i != 0 {
+                        if view.alpha == 0 {
+                            view.alpha = 1
+                        } else {
+                            view.alpha = 0
+                        }
+                    }
+                }
+            }
+        }
+    }
     @IBAction func emailPressed(_ sender: UIButton) {
         if let detail = detailToChange {
             viewModel.changeToEmail(name: detail.name, index: detail.index, type: sender.currentTitle!)

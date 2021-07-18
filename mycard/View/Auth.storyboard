@@ -281,16 +281,6 @@
             </objects>
             <point key="canvasLocation" x="3799" y="-410"/>
         </scene>
-        <!--PersonalInfo-->
-        <scene sceneID="Def-hs-C2l">
-            <objects>
-                <viewControllerPlaceholder storyboardName="PersonalInfo" id="phD-y3-a6N" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Qgh-T2-jGi"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jRs-pg-8hS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3447" y="1209"/>
-        </scene>
         <!--Camera-->
         <scene sceneID="7vq-Nr-ylf">
             <objects>
@@ -534,9 +524,9 @@ in store for you.</string>
                         <outlet property="descriptionLabel" destination="8h9-9t-1c6" id="dpM-Jl-Mey"/>
                         <outlet property="setupLabel" destination="lhd-Yz-N5p" id="PWl-Xm-UtA"/>
                         <outlet property="skipButton" destination="l2t-NR-LhS" id="gUN-YA-PJE"/>
-                        <segue destination="Jfl-Bu-dof" kind="show" identifier="setupCardToProfileSetup" id="Z8i-rf-3qZ"/>
-                        <segue destination="phD-y3-a6N" kind="presentation" identifier="SetupCardToPersonalInfo" id="64s-IT-pbF"/>
+                        <segue destination="Jfl-Bu-dof" kind="show" identifier="SetupCardToProfileSetup" id="Z8i-rf-3qZ"/>
                         <segue destination="rQa-9I-p88" kind="presentation" identifier="SetupCardToCamera" id="4rq-Sr-lSp"/>
+                        <segue destination="Jfl-Bu-dof" kind="show" id="5wY-Dq-Zxn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Tc-0W-c3V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -545,8 +535,8 @@ in store for you.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TF3-c2-3bB"/>
-        <segue reference="Tk9-TY-NSR"/>
+        <segue reference="RVL-SD-EN0"/>
+        <segue reference="Z8i-rf-3qZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="GH.png" width="256" height="170.5"/>
